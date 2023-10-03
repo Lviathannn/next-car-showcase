@@ -37,7 +37,7 @@ export default function CarDetails({ isOpen, handleClose, car }: Props) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-90"
               >
-                <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white text-left shadow-xl transition-all flex flex-col gap-5">
+                <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white text-left shadow-xl transition-all flex flex-col gap-5 p-6">
                   <button
                     type="button"
                     onClick={handleClose}
@@ -60,6 +60,53 @@ export default function CarDetails({ isOpen, handleClose, car }: Props) {
                         priority
                         className="object-contain"
                       />
+                    </div>
+                    <div className="flex gap-3">
+                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-md">
+                        <Image
+                          src="/hero.png"
+                          alt="Card Model"
+                          fill
+                          priority
+                          className="object-contain"
+                        />
+                      </div>
+                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100">
+                        <Image
+                          src="/hero.png"
+                          alt="Card Model"
+                          fill
+                          priority
+                          className="object-contain"
+                        />
+                      </div>
+                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100">
+                        <Image
+                          src="/hero.png"
+                          alt="Card Model"
+                          fill
+                          priority
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex-1 flex flex-col gap-2">
+                    <h2 className="font-semibold text-xl capitalize">
+                      {car.make} {car.model}
+                    </h2>
+                    <div className="mt-3 flex flex-wrap gap-4">
+                      {Object.entries(car).map(([key, value], index) => {
+                        return (
+                          <div
+                            className="flex justify-between gap-5 w-full text-right "
+                            key={index}
+                          >
+                            <h4 className="text-gray capitalize">{key.replace("_", " ")}</h4>
+                            <p>{value}</p>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </Dialog.Panel>
