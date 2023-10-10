@@ -1,14 +1,14 @@
 "use client";
-import { manufacturers } from "@/data/constants";
+import { manufacturers } from "@/utils/constants";
 import { Combobox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { useState, Fragment } from "react";
 type Props = {
-  manufacture: string;
-  setManufacture: React.Dispatch<React.SetStateAction<string>>;
+  manufacturer: string;
+  setManufacturer: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function SearchManufacture({ manufacture, setManufacture }: Props) {
+export default function SearchManufacturer({ manufacturer, setManufacturer }: Props) {
   const [query, setquery] = useState("");
 
   const filteredManufacturers =
@@ -20,7 +20,7 @@ export default function SearchManufacture({ manufacture, setManufacture }: Props
 
   return (
     <div className="search-manufacturer">
-      <Combobox value={manufacture} onChange={setManufacture}>
+      <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <Image src="/car-logo.svg" width={20} height={20} className="ml-4" alt="Car Logo" />
@@ -40,7 +40,7 @@ export default function SearchManufacture({ manufacture, setManufacture }: Props
             leaveTo="opacity-0"
             afterLeave={() => setquery("")}
           >
-            <Combobox.Options>
+            <Combobox.Options className={"absolute bg-primary-blue-100 z-20 w-full"}>
               {filteredManufacturers.map((m) => {
                 return (
                   <Combobox.Option

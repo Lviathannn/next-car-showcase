@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import { CarDetails, CustomButton } from ".";
-import { calculateCarRent } from "@/utils";
+import { calculateCarRent, generateCarImage } from "@/utils";
 import { useState } from "react";
-import { carType } from "@/type";
+import { carType } from "@/utils/type";
 
 type Props = {
   car: carType;
@@ -26,8 +26,14 @@ export default function CarCard({ car }: Props) {
         {carRent}
         <span className="self-end text-[14px] font-medium"> /Day</span>
       </p>
-      <div className="relative w-full h-40 my-3 object-contain">
-        <Image src="/hero.png" alt="Card Model" fill priority className="object-contain" />
+      <div className="relative w-full h-44 my-3 object-contain">
+        <Image
+          src={generateCarImage(car)}
+          alt="Card Model"
+          fill
+          priority
+          className="object-contain"
+        />
       </div>
       <div className="relative flex w-full mt-2 ">
         <div className="flex group-hover:invisible w-full justify-between text-gray">

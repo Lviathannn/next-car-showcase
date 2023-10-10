@@ -1,5 +1,6 @@
 "use client";
-import { carType } from "@/type";
+import { generateCarImage } from "@/utils";
+import { carType } from "@/utils/type";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Fragment } from "react";
@@ -54,7 +55,7 @@ export default function CarDetails({ isOpen, handleClose, car }: Props) {
                   <div className="flex-1 flex flex-col gap-3">
                     <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
                       <Image
-                        src="/hero.png"
+                        src={generateCarImage(car)}
                         alt="Card Model"
                         fill
                         priority
@@ -64,7 +65,7 @@ export default function CarDetails({ isOpen, handleClose, car }: Props) {
                     <div className="flex gap-3">
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-md">
                         <Image
-                          src="/hero.png"
+                          src={generateCarImage(car, "29")}
                           alt="Card Model"
                           fill
                           priority
@@ -73,7 +74,7 @@ export default function CarDetails({ isOpen, handleClose, car }: Props) {
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100">
                         <Image
-                          src="/hero.png"
+                          src={generateCarImage(car, "33")}
                           alt="Card Model"
                           fill
                           priority
@@ -82,7 +83,7 @@ export default function CarDetails({ isOpen, handleClose, car }: Props) {
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100">
                         <Image
-                          src="/hero.png"
+                          src={generateCarImage(car, "13")}
                           alt="Card Model"
                           fill
                           priority
